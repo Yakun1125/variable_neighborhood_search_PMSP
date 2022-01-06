@@ -56,13 +56,13 @@ double Evaluate::Calculation(int *skd)
 {
     int point = 0;
     vector<double> start(Data->getm());
-    vector<vector<int>> origin(Data->getm(), vector<int>(0));
+    //vector<vector<int>> origin(Data->getm(), vector<int>(0));
     vector<double> cost(Data->getm());
     double totalcost = 0;
     for (int i = 0; i < Data->getm(); i++)
     {
-        origin[i].resize(Data->getn());
-        origin[i].push_back(skd[i]);
+        //origin[i].resize(Data->getn());
+        //origin[i].push_back(skd[i]);
         start[i] = Data->a(skd[i]);
         cost[i] = 0.0;
     }
@@ -72,7 +72,7 @@ double Evaluate::Calculation(int *skd)
     do
     {
         point = min_element(start.begin(), start.end()) - start.begin();
-        origin[point].push_back(skd[i]);
+        //origin[point].push_back(skd[i]);
         if (start[point] <= Data->h(skd[i]))
         {
             start[point] = start[point] + Data->a(skd[i]);
